@@ -4,6 +4,7 @@ import ProfilePage from "./ProfilePage";
 import UsersPage from "./UsersPage";
 import RegisterPage from "./RegisterPage";
 import CategoryPage from "./CategoryPage"
+import CoursePage from "./CoursePage"
 import Sidebar from "../components/Sidebar";
 import Topbar from "../components/Topbar";
 import axios from "axios";
@@ -139,6 +140,28 @@ function DashboardPage() {
               setShowProfile(false);
             },
             active: currentPage === "category",
+          },
+          {
+            label: "Course",
+            icon: (
+              <svg
+                className="w-5 h-5"
+                fill="none"
+                stroke="currentColor"
+                strokeWidth="2"
+                viewBox="0 0 24 24"
+              >
+                <path
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  d="M10 2C8.9 2 8 2.9 8 4V6H6C4.9 6 4 6.9 4 8V18C4 19.1 4.9 20 6 20H18C19.1 20 20 19.1 20 18V8C20 6.9 19.1 6 18 6H16V4C16 2.9 15.1 2 14 2H10ZM14 4V6H10V4H14ZM18 8V18H6V8H18Z"/>
+              </svg>
+            ),
+            onClick: () => {
+              setCurrentPage("course");
+              setShowProfile(false);
+            },
+            active: currentPage === "course",
           }
         ]
       : []),
@@ -154,6 +177,8 @@ function DashboardPage() {
         return <RegisterPage />;
       case "category":
         return <CategoryPage />;
+      case "course":
+        return <CoursePage />;
       case "dashboard":
       default:
         return (
