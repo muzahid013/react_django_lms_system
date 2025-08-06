@@ -8,6 +8,7 @@ class CategorySerializer(serializers.ModelSerializer):
         fields = '__all__'
 
 class CourseSerializer(serializers.ModelSerializer):
+    category_id = CategorySerializer(read_only=True)
     class Meta:
         model = Course
         fields = '__all__'
