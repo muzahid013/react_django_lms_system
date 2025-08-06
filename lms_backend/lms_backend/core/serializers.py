@@ -1,22 +1,13 @@
 from rest_framework import serializers
 from .models import Course, Category, Lesson, Material, Enrollment, QuestionAnswer
-from django.contrib.auth import get_user_model
 
-User = get_user_model()
 
 class CategorySerializer(serializers.ModelSerializer):
     class Meta:
         model = Category
-        fields = ['title','description']
-
-# class InstructorSerializer(serializers.ModelSerializer):
-#     class Meta:
-#         model = User
-#         fields = ['username','email','role']
+        fields = '__all__'
 
 class CourseSerializer(serializers.ModelSerializer):
-    category_id = CategorySerializer(read_only=True)
-    # instructor_id = InstructorSerializer(read_only=True)
     class Meta:
         model = Course
         fields = '__all__'

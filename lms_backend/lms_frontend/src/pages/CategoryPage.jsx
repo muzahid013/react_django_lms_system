@@ -51,7 +51,7 @@ export default function CategoryPage() {
       setIsLoading(true);
       setError(null);
       try {
-        const categoriesResponse = await axios.get("http://127.0.0.1:8000/api/courses/", {
+        const categoriesResponse = await axios.get("http://127.0.0.1:8000/api/categories/", {
           headers: { Authorization: `Bearer ${token}` },
         });
         if (Array.isArray(categoriesResponse.data)) {
@@ -105,22 +105,20 @@ export default function CategoryPage() {
         token={token}
         onCategoryCreated={handleCategoryCreated}
       />
-      <h2 className="text-2xl text-center font-bold mb-6 text-green-600">List of All Courses</h2>
+      <h2 className="text-2xl text-center font-bold mb-6 text-green-600">List of All Categories</h2>
       <div className="overflow-x-auto rounded-lg">
         <table className="min-w-full border border-gray-200 rounded-lg overflow-hidden">
           <thead className="bg-blue-50">
             <tr>
               <th className="border px-4 py-2 text-center">Title</th>
               <th className="border px-4 py-2 text-left">Description</th>
-              <th className="border px-4 py-2 text-left">Category Name</th>
             </tr>
           </thead>
           <tbody>
-            {allCategories.map((course,index) => (
-              <tr key={course.id}>
-                <td className="border px-4 py-1 font-semibold">{index+1}. {course.title}</td>
-                <td className="border px-4 py-2 font-semibold">{course.description}</td>
-                <td className="border px-4 py-2 font-semibold">{course.category_id.title}</td>            
+            {allCategories.map((catgory,index) => (
+              <tr key={catgory.id}>
+                <td className="border px-4 py-1 font-semibold">{index+1}. {catgory.title}</td>
+                <td className="border px-4 py-2 font-semibold">{catgory.description}</td>
               </tr> 
             ))}
           </tbody>

@@ -120,7 +120,7 @@ export default function CategoryPage() {
               <tr key={course.id}>
                 <td className="border px-4 py-1 font-semibold">{index+1}. {course.title}</td>
                 <td className="border px-4 py-2 font-semibold">{course.description}</td>
-                <td className="border px-4 py-2 font-semibold">{course.category_id.title}</td>            
+                <td className="border px-4 py-2 font-semibold">{course.description}</td>            
               </tr> 
             ))}
           </tbody>

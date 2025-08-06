@@ -39,7 +39,7 @@ def category_list_create(request):
 def course_list_create(request):
     if request.method == 'GET':
         if request.user.role == 'admin':
-            courses = Course.objects.select_related('category_id')
+            courses = Course.objects.all()
         elif request.user.role == 'teacher':
             courses = Course.objects.filter(teacher=request.user)
         elif request.user.role == 'student':
