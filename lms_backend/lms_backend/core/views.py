@@ -17,7 +17,7 @@ from rest_framework.permissions import IsAuthenticated
 @permission_classes([IsAuthenticated])  # Optional: restrict all, then manually handle roles
 def category_list_create(request):
     if request.method == 'GET':
-        categories = Category.objects.all()
+        courses = Course.objects.select_related('category_id')
         serializer = CategorySerializer(categories, many=True)
         return Response(serializer.data)
 
